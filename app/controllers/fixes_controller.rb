@@ -1,0 +1,2 @@
+class FixesController < ApplicationController
+end

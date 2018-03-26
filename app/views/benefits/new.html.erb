@@ -1,0 +1,38 @@
+<h1>Fear-Setting</h1>
+<p>inspired by Tim Ferris' TED Talk</p>
+
+Challenge = <%= @challenge.description %>
+<br />
+<% if @benefits %>
+Benefits:
+    <% @benefits.each do |b| %>
+        <br />
+        <%= b.description %>
+    <% end %>
+<% end %>
+<br />
+
+<%= form_for(Benefit.new, as: :benefit, url: challenge_benefits_path) do |f| %>
+    New Benefit: <br />
+    <%= f.text_field :description, required: true, autofocus: true %>
+    <div class="form-actions">
+        <%= f.submit "add benefit", class: 'btn' %>
+    </div>
+<% end %>
+
+<% if @fears %>
+Fears:
+    <% @fears.each do |f| %>
+     <br />
+        <%= f.description %>
+    <% end %>
+<% end %>
+<br />
+
+<%= form_for(Fear.new, as: :fear, url: challenge_fears_path) do |f| %>
+    New Fear: <br />
+    <%= f.text_field :description, required: true, class: "input_textbox" %>
+    <div class="form-actions">
+        <%= f.submit "add fear", class: 'btn' %>
+    </div>
+<% end %>

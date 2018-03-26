@@ -1,0 +1,2 @@
+class PreventionsController < ApplicationController
+end
