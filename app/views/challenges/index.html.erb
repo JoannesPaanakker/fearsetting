@@ -5,8 +5,8 @@
 
 <% @challenges.each do |c| %>
 Challenge:
-    <div class="textbox">
-        <%= c.description %>
+    <div class="challenge">
+      <%= c.description %>
     </div>
     <% @benefits = Benefit.where(challenge_id: c.id) %>
     Benefits:
@@ -22,4 +22,15 @@ Challenge:
             <%= f.description %>
         </div>
     <% end %>
+  Consequences:
+  <div class="textbox">
+    6 months from now: <%= c.cost_inaction_hy %>
+  </div>
+  <div class="textbox">
+    1 year from now: <%= c.cost_inaction_yr %>
+  </div>
+  <div class="textbox">
+    3 years from now: <%= c.cost_inaction_3y %>
+  </div>
+  <button class="knop-1"><%= link_to "Edit Consequences", edit_challenge_path(c) %></button>
 <% end %>

@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20180326104705) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "benefit"
     t.bigint "challenge_id"
     t.index ["challenge_id"], name: "index_benefits_on_challenge_id"
   end
@@ -33,7 +32,6 @@ ActiveRecord::Schema.define(version: 20180326104705) do
     t.string "cost_inaction_3y"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "challenge"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_challenges_on_user_id"
   end
@@ -42,7 +40,6 @@ ActiveRecord::Schema.define(version: 20180326104705) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "fear"
     t.bigint "challenge_id"
     t.index ["challenge_id"], name: "index_fears_on_challenge_id"
   end
@@ -51,7 +48,6 @@ ActiveRecord::Schema.define(version: 20180326104705) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "fix"
     t.bigint "fear_id"
     t.index ["fear_id"], name: "index_fixes_on_fear_id"
   end
@@ -60,7 +56,6 @@ ActiveRecord::Schema.define(version: 20180326104705) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "prevention"
     t.bigint "fear_id"
     t.index ["fear_id"], name: "index_preventions_on_fear_id"
   end
@@ -78,7 +73,6 @@ ActiveRecord::Schema.define(version: 20180326104705) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "user"
     t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

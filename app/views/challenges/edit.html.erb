@@ -1,0 +1,18 @@
+<div class="kop">
+<h1>Fear-Setting</h1>
+<h4>inspired by Tim Ferris' TED Talk</h4>
+</div>
+
+<%= simple_form_for(@challenge) do |c| %>
+  <%= c.error_notification %>
+
+  <div class="form-inputs">
+    <%= c.input :cost_inaction_hy %>
+    <%= c.input :cost_inaction_yr %>
+    <%= c.input :cost_inaction_3y %>
+  </div>
+
+  <div class="form-actions">
+    <%= c.button :submit %>
+  </div>
+<% end %>
