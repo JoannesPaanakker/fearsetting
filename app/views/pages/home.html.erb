@@ -1,11 +1,12 @@
+<div class="kop">
 <h1>Fear-Setting</h1>
-<p>inspired by Tim Ferris' TED Talk</p>
-
+<h4>inspired by Tim Ferris' TED Talk</h4>
+</div>
 
 <%= form_for(Challenge.new, as: :challenge, url: challenges_path) do |f| %>
     Challenge: <br />
-    <%= f.text_field :description, required: true, autofocus: true %>
+    <%= f.text_field :description, required: true, autofocus: true, class: "input_textbox" %>
     <div class="form-actions">
-        <%= f.submit "Next", class: 'btn' %>
+        <%= f.submit "Next", class: 'knop-1' %>
     </div>
 <% end %>

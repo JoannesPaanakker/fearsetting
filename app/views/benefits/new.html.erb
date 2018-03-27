@@ -1,13 +1,18 @@
+<div class="kop">
 <h1>Fear-Setting</h1>
 <p>inspired by Tim Ferris' TED Talk</p>
+</div>
+Challenge: 
+<div class="challenge">
+    <%= @challenge.description %>
+</div>
 
-Challenge = <%= @challenge.description %>
-<br />
 <% if @benefits %>
 Benefits:
     <% @benefits.each do |b| %>
-        <br />
-        <%= b.description %>
+        <div class="textbox">
+            <%= b.description %>
+        </div>
     <% end %>
 <% end %>
 <br />
@@ -23,9 +28,11 @@ Benefits:
 <% if @fears %>
 Fears:
     <% @fears.each do |f| %>
-     <br />
-        <%= f.description %>
-        <button class="knop-1"><%= link_to "Prevention", new_fear_prevention_path(f) %></button>
+        <div class="textbox">
+            <%= f.description %>
+            <button class="knop-1"><%= link_to "Prevention", new_fear_prevention_path(f) %></button>
+        </div>
+       
     <% end %>
 <% end %>
 <br />

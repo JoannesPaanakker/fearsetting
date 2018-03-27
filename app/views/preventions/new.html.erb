@@ -1,19 +1,24 @@
-<h1>Fear-Setting</h1>
-<p>inspired by Tim Ferris' TED Talk</p>
 
-Fear = <%= @fear.description %>
-<br />
+<div class="kop">
+<h1>Fear-Setting</h1>
+<h4>inspired by Tim Ferris' TED Talk</h4>
+</div>
+Fear = 
+<div class="challenge">
+<%= @fear.description %>
+</div>
+
 <% if @preventions %>
 Preventions:
     <% @preventions.each do |p| %>
-        <br />
-        <%= p.description %>
+        <div class="textbox">
+            <%= p.description %>
+        </div>
     <% end %>
 <% end %>
 <br />
 
 <%= form_for(Prevention.new, as: :prevention, url: fear_preventions_path) do |p| %>
-    New prevention: <br />
     <%= p.text_field :description, required: true, autofocus: true, class: "input_textbox" %>
     <div class="form-actions">
         <%= p.submit "add prevention", class: 'knop-1' %>

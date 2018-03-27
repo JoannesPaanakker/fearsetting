@@ -1,0 +1,25 @@
+<div class="kop">
+<h1>Fear-Setting</h1>
+<h4>inspired by Tim Ferris' TED Talk</h4>
+</div>
+
+<% @challenges.each do |c| %>
+Challenge:
+    <div class="textbox">
+        <%= c.description %>
+    </div>
+    <% @benefits = Benefit.where(challenge_id: c.id) %>
+    Benefits:
+    <% @benefits.each do |b| %>
+        <div class="textbox">
+            <%= b.description %>
+        </div>
+    <% end %>
+    <% @fears = Fear.where(challenge_id: c.id) %>
+    Fears:
+    <% @fears.each do |f| %>
+        <div class="textbox">
+            <%= f.description %>
+        </div>
+    <% end %>
+<% end %>
