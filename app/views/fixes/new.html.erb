@@ -1,0 +1,29 @@
+<h1>Fear-Setting</h1>
+<p>inspired by Tim Ferris' TED Talk</p>
+
+Fear = <%= @fear.description %>
+<br />
+<% if @fixes %>
+fixes:
+    <% @fixes.each do |f| %>
+        <br />
+        <%= f.description %>
+    <% end %>
+<% end %>
+<br />
+
+<%= form_for(Fix.new, as: :fix, url: fear_fixes_path) do |f| %>
+    New fix: <br />
+    <%= f.text_field :description, required: true, autofocus: true, class: "input_textbox" %>
+    <div class="form-actions">
+        <%= f.submit "add fix", class: 'knop-1' %>
+    </div>
+<% end %>
+
+Preventions:
+<% @preventions.each do |p| %>
+    <br />
+    <%= p.description %>
+<% end %>
+<br />
+<button class="knop-1"><%= link_to "Add Prevention", new_fear_prevention_path(@fear) %></button>

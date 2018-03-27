@@ -14,9 +14,9 @@ Benefits:
 
 <%= form_for(Benefit.new, as: :benefit, url: challenge_benefits_path) do |f| %>
     New Benefit: <br />
-    <%= f.text_field :description, required: true, autofocus: true %>
+    <%= f.text_field :description, required: true, autofocus: true, class: "input_textbox" %>
     <div class="form-actions">
-        <%= f.submit "add benefit", class: 'btn' %>
+        <%= f.submit "add benefit", class: 'knop-1' %>
     </div>
 <% end %>
 
@@ -25,6 +25,7 @@ Fears:
     <% @fears.each do |f| %>
      <br />
         <%= f.description %>
+        <button class="knop-1"><%= link_to "Prevention", new_fear_prevention_path(f) %></button>
     <% end %>
 <% end %>
 <br />
@@ -33,6 +34,6 @@ Fears:
     New Fear: <br />
     <%= f.text_field :description, required: true, class: "input_textbox" %>
     <div class="form-actions">
-        <%= f.submit "add fear", class: 'btn' %>
+        <%= f.submit "add fear", class: 'knop-1' %>
     </div>
 <% end %>
