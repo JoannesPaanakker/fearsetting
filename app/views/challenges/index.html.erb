@@ -7,5 +7,13 @@ Your Challenges:
     <div class="challenge">
       <%= c.description %>
     </div>
-    <button class="knop-1"><%= link_to "Challenge Details", challenge_path(c) %></button>
+    Can you accept the consequences of not taking action?
+    <div class="challenge">
+      <% if c.acceptable %>
+        Yes
+      <% else %>
+        No: Begin now!
+      <% end %>
+    </div
+  <button class="knop-1"><%= link_to "Challenge Details", challenge_path(c) %></button>
 <% end %>

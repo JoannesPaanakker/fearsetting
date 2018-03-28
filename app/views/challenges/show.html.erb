@@ -2,14 +2,29 @@
 <h1>Fear-Setting</h1>
 <h4>inspired by Tim Ferris' TED Talk</h4>
 </div>
-
-Challenge:
-<div class="challenge">
-    <%= @challenge.description %>
+<div container>
+    <div row>
+        <div class="col-xs-6 col-sm-6">
+            Challenge:
+            <div class="challenge">
+                <%= @challenge.description %>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6">
+            Is taking no action acceptable?
+            <div class="challenge">
+                <% if @challenge.acceptable %>
+                Yes
+                <% else %>
+                No: Begin now!
+                <% end %>
+            </div>
+        </div>
+    </div>
 </div>
 <div container>
     <div row>
-        <div class="col-xs-12 col-sm-6">
+        <div class="col-xs-6 col-sm-6">
             Benefits:
             <% @benefits.each do |b| %>
                 <div class="textbox">
@@ -26,8 +41,9 @@ Challenge:
             <div class="textbox">
                 3 years from now: <%= @challenge.cost_inaction_3y %>
             </div>
+            <button class="knop-1"><%= link_to "Acceptable?", edit_challenge_path(@challenge) %></button>
         </div>
-        <div class="col-xs-12 col-sm-6">
+        <div class="col-xs-6 col-sm-6">
             Fears:
             <% @fears.each do |f| %>
                 <div class="textbox">
