@@ -10,4 +10,10 @@ Rails.application.routes.draw do
     resources :preventions, only: [:new, :create, :show, :destroy]
     resources :fixes, only: [:new, :create, :show, :destroy]  
   end
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :challenges, only: [ :index, :show, :update, :create ]
+    end
+  end
 end
