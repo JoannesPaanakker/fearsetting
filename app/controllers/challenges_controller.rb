@@ -9,6 +9,8 @@ class ChallengesController < ApplicationController
 
     def show
         @challenge = Challenge.find(params[:id])
+        @benefits = Benefit.where(challenge_id: @challenge.id)
+        @fears = Fear.where(challenge_id: @challenge.id)
     end
 
     def new
@@ -44,6 +46,6 @@ class ChallengesController < ApplicationController
     private
 
     def challenge_params
-        params.require(:challenge).permit(:description, :name, :acceptable, :cost_inaction_hy, :cost_inaction_yr, :cost_inaction3y, :user_id)
+        params.require(:challenge).permit(:description, :name, :acceptable, :cost_inaction_hy, :cost_inaction_yr, :cost_inaction3y, :user_id, {:benefit_attributes => [:description]})
     end
 end

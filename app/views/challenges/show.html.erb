@@ -1,0 +1,54 @@
+<div class="kop">
+<h1>Fear-Setting</h1>
+<h4>inspired by Tim Ferris' TED Talk</h4>
+</div>
+
+Challenge:
+<div class="challenge">
+    <%= @challenge.description %>
+</div>
+<div container>
+    <div row>
+        <div class="col-xs-12 col-sm-6">
+            Benefits:
+            <% @benefits.each do |b| %>
+                <div class="textbox">
+                    <%= b.description %>
+                </div>
+            <% end %>
+              Consequences:
+            <div class="textbox">
+                6 months from now: <%= @challenge.cost_inaction_hy %>
+            </div>
+            <div class="textbox">
+                1 year from now: <%= @challenge.cost_inaction_yr %>
+            </div>
+            <div class="textbox">
+                3 years from now: <%= @challenge.cost_inaction_3y %>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            Fears:
+            <% @fears.each do |f| %>
+                <div class="textbox">
+                    <%= f.description %>
+                    <br />
+                    Preventions:
+                    <% Prevention.where(fear_id: f.id).each do |p| %>
+                        <div class="textbox-2">
+                            <%= p.description %>
+                        </div>
+                    <% end %>
+                    Fixes:
+                    <% Fix.where(fear_id: f.id).each do |f| %>
+                        <div class="textbox-2">
+                            <%= f.description %>
+                        </div>
+                    <% end %>                    
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+  <button class="knop-1"><%= link_to "Edit Consequences", edit_challenge_path(@challenge) %></button>
